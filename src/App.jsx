@@ -39,6 +39,7 @@ function App() {
 
   const handleIngredient = (id) => {
     setToggle((prev) => (prev === id ? null : id));
+    setToggleinst(null)
     recipe.map((item) =>
       item.id === id ? setIngredient(item.ingredient) : item
     );
@@ -46,6 +47,7 @@ function App() {
 
   const handleInstruction = (id) => {
     setToggleinst((prev) => (prev === id ? null : id));
+    setToggle(null)
     recipe.map((item) =>
       item.id === id ? setInstruct(item.instruction) : item
     );
