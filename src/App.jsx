@@ -6,10 +6,10 @@ import "./App.css";
 function App() {
   const [recipe, setRecipe] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [ingredient, setIngredient] = useState("");
-  const [toggle, setToggle] = useState("");
-  const [toggleinst, setToggleinst] = useState("");
-  const [instruct, setInstruct] = useState("");
+  const [ingredient, setIngredient] = useState([]);
+  const [toggle, setToggle] = useState(null);
+  const [toggleinst, setToggleinst] = useState(null);
+  const [instruct, setInstruct] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
