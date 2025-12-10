@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 import "./App.css";
 
@@ -7,8 +7,8 @@ function App() {
   const [recipe, setRecipe] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [ingredient, setIngredient] = useState("");
-  const [toggle, setToggle] = useState(null);
-  const [toggleinst, setToggleinst] = useState(null);
+  const [toggle, setToggle] = useState("");
+  const [toggleinst, setToggleinst] = useState("");
   const [instruct, setInstruct] = useState("");
   const [search, setSearch] = useState("");
 
@@ -17,7 +17,7 @@ function App() {
       try {
         const response = await axios.get("https://dummyjson.com/recipes");
         // const response = await data.json();
-        const update =response.data.recipes.map((item) => ({
+        const update = response.data.recipes.map((item) => ({
           id: item.id,
           name: item.name,
           image: item.image,
@@ -39,7 +39,8 @@ function App() {
 
   const handleIngredient = (id) => {
     setToggle((prev) => (prev === id ? null : id));
-    setToggleinst(null)
+    setToggleinst(null);
+
     recipe.map((item) =>
       item.id === id ? setIngredient(item.ingredient) : item
     );
@@ -47,7 +48,8 @@ function App() {
 
   const handleInstruction = (id) => {
     setToggleinst((prev) => (prev === id ? null : id));
-    setToggle(null)
+
+    setToggle(null);
     recipe.map((item) =>
       item.id === id ? setInstruct(item.instruction) : item
     );
